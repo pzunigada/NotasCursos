@@ -12,7 +12,7 @@ Que es la IP 127.0.0.0
 ## Cambiar el shell predeterminado de un usuario linux 
 En este artículo, describiremos cómo cambiar el shell de un usuario en Linux. El shell es un programa que acepta e interpreta comandos; hay **varios shells como bash, sh, ksh, zsh, fish y muchos otros** shells menos conocidos disponibles en Linux.
 
-Bash (/ bin/bash) es un shell popular en la mayoría de los sistemas Linux, si no en todos, y normalmente es el shell predeterminado para las cuentas de usuario.
+**Bash (/ bin/bash)** es un shell popular en la mayoría de los sistemas Linux, si no en todos, y normalmente es el shell predeterminado para las cuentas de usuario.
 
 Hay varias razones para cambiar el shell de un usuario en Linux, incluidas las siguientes:
 
@@ -26,7 +26,8 @@ Se puede acceder a un shell de inicio de sesión desde una interfaz basada en te
 
 Primero enumeremos todos los shells disponibles en su sistema Linux, escriba.
 
-`# cat /etc/shells`
+``` shell
+# cat /etc/shells
 
 > /bin/sh  
 > /bin/bash  
@@ -34,7 +35,7 @@ Primero enumeremos todos los shells disponibles en su sistema Linux, escriba.
 > /bin/tcsh  
 > /bin/csh  
 > /bin/dash  
-
+```
 Antes de continuar, tenga en cuenta que:
 
 * Un usuario puede cambiar su propio shell a cualquier cosa: la cual, sin embargo, debe estar listada en el archivo/etc/shells.
@@ -42,6 +43,21 @@ Antes de continuar, tenga en cuenta que:
 * Si una cuenta tiene un shell de inicio de sesión restringido, solo root puede cambiar el shell de ese usuario.
 
 Ahora analicemos tres formas diferentes de cambiar el shell de usuario de Linux.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Cambiar la ip de un equipo linux
 establecer las configuraciones actuales asi como las interfaces de red existentes 
@@ -169,7 +185,7 @@ iface ens33 inet static
 sudo apt-get install console-data
 # Cambiamos idioma:
 sudo setxkbmap -layout 'es,es' -model pc105
-```
+
 ***Linux: Configurar teclado español: Kali Linux***
 ```
 #Cargamos idioma de teclado español:
@@ -200,7 +216,10 @@ KEYBOARDTYPE="pc"
 ```
 
 # Notas
-## *Entender el uso de IP*
+## *Entender el uso de IP*   
+
+[IP Addressing and Subnetting for New Users](https://www.cisco.com/c/es_mx/support/docs/ip/routing-information-protocol-rip/13788-3.html)
+
 La direcciones IP privadas no son de nadie, y cualquier organización puede usarla sin necesidad de aprobación ni registro, pero estás direcciones no pueden transmitir a través del Internet público.
 
 Entender cómo se usan los números de cada IP es algo bastante intrincado, pero los rangos que abarcan son algo más sencillos. Existen tres clases de direcciones IP privadas y abarcan unos 18 millones de números de direcciones IP en total:
