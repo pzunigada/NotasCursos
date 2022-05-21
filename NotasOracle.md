@@ -401,6 +401,31 @@ alter pluggable database ${PDB_NAME} save state;
 exit;
 ```
 
+## SwingBench
+
+[SwingBench 2.6](https://www.dominicgiles.com/downloads.html)
+
+Swingbench is a free load generator (and benchmarks) designed to stress test an Oracle database (12c, 18c, 19c). It can be downloaded here. See my blog for new releases and what Im currently working on.
+
+**About SwingBench**
+
+SwingBench consists of a load generator, a coordinator and a cluster overview. The software enables a load to be generated and the transactions/response times to be charted.
+Swingbench can be used to demonstrate and test technologies such as Real Application Clusters, Online table rebuilds, Standby databases, Online backup and recovery etc.
+The code that ships with SwingBench includes 6 benchmarks, OrderEntry, SalesHistory, TPC-DS Like, JSON, CallingCircle and StressTest..
+
+* OrderEntry is based on the "oe" schema that ships with Oracle 12c/Oracle 18c/Oracle 19c. It has been modified so that Spatial, Intermedia schema's do not need to be installed. It can be run continuously (that is until you run out of space). It introduces heavy contention on a small number of tables and is designed to stress interconnects and memory. It is installed using the "oewizard" located in the bin directory. Both a pure jdbc and pl/sql (lower network overhead) variant exist of the benchmark.
+* SalesHistory is based on the “sh” schema that ships with Oracle 12c/Oracle 18c/Oracle 19c and is designed to test the performance of complicated queries when run against large tables. It is read only and can be scaled over a number of default sizes from 1GB to 1TB. A custom mode also allows for the creation of smaller and larger schemas
+* CallingCircle (deprecated) simulates the SQL that is generated for an online telco application. It requires data files to be generated and copied from the database server to the load generator before each run, it typically requires between 1 and 8 GB of disk space. Both benchmarks are heavily CPU intensive. Experience has shown that you require at least 1 processor of load generator to every 2 processors of database server. It is designed to stress the CPU and memory without the need for a powerful I/O subsystem. Its is installed using the "ccwizard" located in the bin directory
+* StressTest simply fires random inserts,updates,selects and updates against a well know table.
+* JSON Stresstest is based on simple JSON documents modelling people flying between airports. It follow a basic CRUD model
+* TPC-DS Like Benchmark is a benchmark similar to TPC-DS. It features both a query and transaction workload in separate configuration files.
+
+The entire framework is developed in Java and as a result can be run on wide variety of platforms. It also provides a simple API to allow developers to build their own benchmarks.
+
+## SQL Administrator
+
+[Administracion de DB](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/index.html "Administracion de DB")
+
 
 ## SQL Tunning
 
