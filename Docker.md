@@ -138,6 +138,9 @@ También existen desafíos potenciales con Docker.
 
 ![Azure Container 1](./img/azure-container-registry-1.png "Azure Container 1")
 
+![Ciclo de Vida Docker](img/im-docker-ciclo-vida-contenedor.jpg "Ciclo de Vida Docker")
+
+
 Comandos:
 
 Caso 1. 
