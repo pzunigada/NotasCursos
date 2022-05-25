@@ -1,4 +1,4 @@
-CLASE 1. 
+## CLASE 1. 
 
 ***El objetivo del diseño es facilitar una comunicación efectiva.***
 
@@ -25,7 +25,7 @@ Es aquel diseño que perdura en el tiempo, desde mi punto de vista es importante
 
 > Contribución creada por: Giuseppe Ramírez y Daniel N. Pozo
 
-## CLASE 2. - Comunicacion Efectiva en el Dise;o?
+## **CLASE 2. - Comunicacion Efectiva en el Dise;o?**
 
 ![Notas Diseno 3](img/NotasDiseno3.jpg "Notas Diseno 3") 
 
@@ -80,7 +80,9 @@ En el pop (disco de la banda Blur parklife), trasmite a traves de la estética y
 
 **CONCLUSIÓN:** Encontramos o comunicamos una forma de diseño en nuestro día a día.
 
-# CLASE 3 - Que es el Contraste?
+## **CLASE 3 - Que es el Contraste?**  
+
+![Notas Contraste](img/notasContraste1.png "Notas Contraste")
 
 ***¿Qué es el contraste?***   
 El contraste en diseño es la diferencia de intensidad, tono o color entre dos o más elementos diferentes. Por ejemplo, si tiene un texto dorado brillante sobre un fondo negro, se ha utilizado el contraste para hacer que el mensaje destaque. El contraste puede usarse para conseguir generar jerarquía visual. Esto es cuando el espectador se fija en los elementos más importantes del diseño en primer o último lugar debido a su color y posición.
@@ -128,4 +130,41 @@ La forma es el modo en que la forma, el tamaño, la posición y el color se comb
 
 7. **Contraste simultaneo:** Este contraste, es un proceso fisiológico donde el órgano de la vista lo que hace es buscar el equilibrio según un color dado y hace que se produzca su opuesto en tono, valor, saturación o temperatura, lo que hace que se modifique la percepción de dicho color. Podríamos decir que es el contraste más sutil y complicado de identificar.
 ![Contraste Color 7](img/ContrasteColor7.jpg "Contraste Color 7")
+
+**Ejemplos de Contraste**    
+
+Ser o no ser. es un dilema de cualquier ser.
+Es contraste en sus formas y colores nos ayuda a distinguir claramente asi como marcar definidamente elementos en nuestro dise;o.
+
+![Contraste ser o no ser](img/ContrasteSerONoSer.png "Contraste ser o no ser")
+
+Contraste por Posicion
+![Contraste por posicion](img/ContrastePorPosicion.webp "Contraste por posicion")
+
+Contraste por Tama;o
+![Contraste por tamano](img/ContrastePorTama%C3%B1o.webp "Contraste por tamano")
+
+Contraste por Figura
+![Contraste por figura](img/ContrastePorFigura.png "Contraste por Figura")
+
+Otros Ejemplos de contraste
+![Ejemplo Contraste 1](img/ejemplocontraste1.jpg "Ejemplo Contraste 1")
+
+![Ejemplo Contraste 2](img/ejemplocontraste2.jpg "Ejemplo Contraste 2")
+
+![Ejemplo Contraste 3](img/ejemplocontraste3.jpg "Ejemplo Contraste 3")
+
+![Ejemplo Contraste 4](img/ejemplocontraste4.jpg "Ejemplo Contraste 4")
+
+![Ejemplo Contraste 5](img/ejemplocontraste5.jpg "Ejemplo Contraste 5")
+
+![Ejemplo Contraste 6](img/ejemplocontraste6.jpg "Ejemplo Contraste 6")
+
+![Ejemplo Contraste 7](img/ejemplocontraste7.jpg "Ejemplo Contraste 7")
+
+![Ejemplo Contraste 8](img/ejemplocontraste8.jpg "Ejemplo Contraste 8")
+
+![Ejemplo Contraste 9](img/ejemplocontraste9.jpg "Ejemplo Contraste 9")
+
+![Ejemplo Contraste 10](img/ejemplocontraste10.jpg "Ejemplo Contraste 10")
 
