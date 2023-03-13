@@ -548,7 +548,7 @@ Un conjunto de ajuste de SQL (STS) es un objeto de base de datos que incluye una
 
 ### ***Notas Rapidas de Clases***
 
-***Arquitectura de la Base de Datos a tomar en cuenta.***
+***Arquitectura de la Base de Datos a tomar en cuenta.***   
 ![](img/ArquitecturaDBOracle.jpg)
 
 ***Areas de Mejora para la Base de datos.***   
@@ -569,8 +569,135 @@ Medible en base:
 ***Proceso de Optimizer Query SQL***   
 ![](img/queryoptimizer.jpg)
 
+***Query Optimizer***
+* **Objetivo:** Generar el plan de Ejecucion mas optimo. 
+* Para conseguir el objetivo usa base Costo (CBO). 
+* El plan de Execution toma los costos:
+  * Selectivity (basado en la estadistica)
+  * Cardinallity (basado en la estadistica)
+  * Cost: CPU, I/O y comunicacion
+![](img/ComoTrabajaOptimizer.jpg)
+* Selectividad - es la relacion del numero de filas que se extraen con respecto al total
+* Cardinalidad - es el numero de filas que retorna una operacion
+* Optimizer utiliza la selectivity and cardinality:
+  * para baja selectivity, accesa al indice
+  * para alta selectivity, accesa a la tabla
+  * estimacion erronea de la cardinalidad genera supoptimo (EP).
+
+
+
+
 
 
 ### ***Notas de Laboratorios***
 **utlxplan.sql** genera la **tabla PLAN_TABLE**, es la tabla de salida por defecto en la cual la sentencia **EXPLAIN PLAN** inserta las filas que describe el plan de ejecucion seleccionado por el generador de planes del optimizador de una base de datos.
+
+---
+# Tuning Base de Datos
+
+
+---
+## Uso de Variables Bind
+> http://vendara-oratun.blogspot.com/2011/04/uso-de-variables-bind.html
+---
+Optimiza el rendimiento de tu base de datos aplicando buenas practicas de programación con el uso de Variables Bind.
+
+Antes de entrar a explicar el uso de variables bind se han preguntado que es lo que pasa cuando se manda a ejecutar una sentencia SQL?. Toda sentencia SQL pasa por el denominado parse, el cual es un análisis de la sentencia antes de su ejecución.
+
+El parseo no es nada mas que un análisis de vinificación de la sentencia antes de que se mande a ejecutar. Este análisis consiste en 5 pasos en el orden presentado:
+1. Análisis sintáctico.
+2. Análisis semántico.
+3. Optimización.
+4. Generación.
+5. Ejecución.
+
+Hay dos tipos de parses que se pueden dar: Soft Parse y Hard Parse.
+
+***Hard Parse***
+Es cuando la sentencia SQL se analiza por los 5 pasos del parseo esto por que Oracle no encuentra la sentencia en el SQL Area del SGA por lo que tiene que analizarse por completo.
+
+***Soft Parse***
+Es cuando la sentencia SQL pasa solo por los pasos 1 y 2 esto por que Oracle encuentra la sentencia en el SQL Area del SGA y determina que no es necesario ejecutar todos los pasos además sería un desperdicio.
+
+Con esto vemos que no toda sentencia SQL se analiza por los 5 pasos, por lo menos se analiza por los dos primeros.
+
+***Pero por que una sentencia SQL llega analizarse solo hasta el paso 2?***
+Por que hasta el segundo paso Oracle encuentra la sentencia SQL parecida en el SQL Area y pasa directamente a ejecuta, con esto se gana mucho tiempo.
+Ya con esta pequeña explicación sabemos que lo mejor que puede suceder en la ejecución de una sentencia SQL es el SOFT PARSE. Si hay mas HARD PARSE los tiempos de respuesta son mas altos y el rendimiento mas bajo.
+
+***Ahora si, como podemos lograr que las ejecuciones SQL se vayan por SOFT PARSE?***
+Pues aplicando las buenas practicas de programación usando bind variables al momento de utilizar sentencias dinámicas que se ejecutan por el comando execute immediate.
+
+A continuación un ejemplo del como no se hace y como se debe de hacer.
+
+**Como no debemos programar!!!**
+```SQL
+alter system flush shared_pool;
+alter system flush buffer_cache;
+set timing on
+```
+Ejemplo de ejecucion sin uso de variables bind
+```SQL
+declare
+    ln_cantidad number;
+begin
+    for n_ind in 1..10000 loop
+  execute immediate 'select count(*) from cl_personas where id_persona='||n_ind into ln_cantidad;
+    end loop;
+end;
+```
+Procedimiento PL/SQL terminado correctamente.
+Transcurrido: 00:00:04.31
+Revisamos en el SQL AREA la cantidad de sentencias que se generaron
+```
+select count(*)cantidad from v$sql where sql_text
+like 'select count(*) from cl_personas where id_persona=%';
+```    
+***Como si debemos programar!!!***
+Ahora realizamos el ejemplo usando variables bind
+```SQL
+alter system flush shared_pool;
+alter system flush buffer_cache;
+
+declare
+  ln_cantidad number;
+begin
+  for n_ind in 1..10000 loop
+    --:ID_PERSONA es la variable bind que se reemplazará
+    --por lo que venga en la sección de USING
+    execute immediate 'select count(*) from cl_personas where  id_persona= :ID_PERSONA' into ln_cantidad using n_ind ;
+  end loop;
+end;
+```
+Procedimiento PL/SQL terminado correctamente.
+Transcurrido: 00:00:01.03
+
+Revisamos en el SQL AREA la cantidad de sentencias
+que se generaron
+```SQL
+select count(*)cantidad from v$sql where sql_text
+  like 'select count(*) from cl_personas where id_persona=%';
+```  
+  
+***Conclusión***   
+Vemos la diferencia en tiempo de respuesta y en la cantidad de sentencias en memoria de la librería SQL.
+
+***Tiempo de respuesta***   
+    Hard Parse  4.31 Segundos
+    Soft Parse  1.3 Segundos
+
+ ***Sql em memoria ***   
+    Hard Parse  9987 sentencias
+    Soft Parse  1 sentencia 
+
+***Beneficios del uso de bind variables :***   
+    Mejores tiempos de respuesta al momento de ejecutar sentencias SQL ya que generan SOFT PARSE al momento de analizarse
+    Disminución de la carga de trabajo en la base de datos.
+    Menor uso se la SQL Library
+
+***Desventaja del no uso de bind variables :***   
+    Peores tiempos de respuesta.
+    Aumento de la carga de trabajo en la base de datos.
+    Mayor uso se la SQL Library
+
 
