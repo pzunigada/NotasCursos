@@ -1,6 +1,8 @@
+# Curso Definitivo de HTML CSS
+
+## Clase2 - Frontend
 
 ![Frontend](img/frontend.webp "Frontend")
-
 
 Además de los estándares, frameworks, preprocesadores y librerías que maneja un Frontend Developer, me gustaría compartir estas herramientas que nos permiten un mejor desarrollo.
 
@@ -21,6 +23,7 @@ Además de los estándares, frameworks, preprocesadores y librerías que maneja 
 * Grid Layout
 * Flexbox
 
+## Clase3 - Backend
 
 ![Backend](img/backend.webp "Backend")
 
@@ -44,6 +47,7 @@ Imagina que has creado un sitio web en tu computador, y lo has dejado estático 
 * A su vez, debe analizar donde va a subir o qué infraestructura de la nube va a utilizar, para decidir como conecta su base de dato en la nube con el fronted, dentro de estas existen Google Cloud, DigitalOcean, AWS y Heroku.
 * Finalmente, debe manejar bases de datos y conectarla a su lenguaje de programación, dentro de ellas pueden existir relacionales (MySQL, PostgreSQL) o no relacionales (mongoDB).
 
+## Clase4 - Fullstack
 
 ![Fullstack](img/Fullstack.jpg "Fullstack")
 
@@ -58,9 +62,57 @@ Espero ver sus aportes relacionados a un Desarrollador Fullstack, es a mi parece
 
 ![Arquitectura](img/Arquitectura.webp "Arquitectura")
 
+## Clase5 - Paginas Estaticas vs, Dinamicas
+
 ![Paginas Estaticas vs. Dinamicas](img/paginasestaticasvsdinamicas.webp "Paginas Estaticas vs. Dinamicas")
 
-[Paginas Estaticas vs. Dinamicas 1](img/Paginas_estaticas_dinamicas1.jpg "Paginas Estaticas vs. Dinamicas 1")
+![Paginas Estaticas vs. Dinamicas 1](img/Paginas_estaticas_dinamicas1.jpg "Paginas Estaticas vs. Dinamicas 1")
 
-[Paginas Estaticas vs. Dinamicas 2](img/Paginas_estaticas_dinamicas2.jpg "Paginas Estaticas vs. Dinamicas 2")
+![Paginas Estaticas vs. Dinamicas 2](img/Paginas_estaticas_dinamicas2.jpg "Paginas Estaticas vs. Dinamicas 2")
+
+![WebSite_vs_WebDeveloper](img/website-development-vs-web-application-development.webp "WebSite_vs_WebDeveloper")
+
+## Clase5 - HTML: Anatomia de una pagina web
+
+![HTML](img/HTML.webp "HTML")
+
+**HTML (HyperText Markup Language)** es un lenguaje de marcado de texto. Se utiliza para darle una estructura al sitio web que estás visitando.
+
+Estructura básica de HTML en una página Web
+* Container: contenedor principal
+* Header: cabecera de la página. Aquí usualmente encuentras el logo y el menú de navegación del sitio.
+* Main content: estructura principal. Por ejemplo, el feed o lista de publicaciones de una red social.
+Sidebar: contenido secundario de una página, que usualmente se encuentra a los lados del contenido principal (o main).
+* Footer: pie de página. Esto se encuentra al fondo del sitio web, salvo en casos de sitios web donde el scroll (o navegación hacia abajo) es infinito, por ende, no tendría sentido ponerlo al fondo.
+
+![Estructura Web](img/EstructuraWeb.webp "Estructura Web")
+
+Las etiquetas en HTML nos ayudan a diferenciar en qué parte del contenido nos encontramos.
+
+La web se conforma de tres conceptos:
+
+* **URL: Uniform Resource Locator.** El identificador único del sitio en el navegador (por ejemplo: https://platzi.com).
+* **HTTP: Protocolo de transferencia de hipertexto.** Es el estándar que se utiliza para enviar datos a través de paquetes entre el cliente y el servidor.
+* **HTML:** es el código que se emplea para estructurar el contenido de tu web, y darle sentido y propósito.*
+
+HTML son siglas que corresponden a Hyper Text Markup Language (Lenguaje de Marcado de Hipertexto).
+
+* **Hyper Text** significa que el texto tiene interactividad, conexión con otros documentos.
+* **Markup** significa que le pone etiquetas a los elementos. Por eso también se le conoce como un lenguaje de etiquetas.
+* **HTML es un lenguaje interpretado.** Además, HTML es un estándar, así que no importa desde qué navegador o dispositivo se ejecute, el código sigue siendo el mismo en cualquier sitio.
+
+> Aporte creado por: Obed Paz, Christian Tambo, Marcelo Chavarría
+
+![Secciones Web](img/SeccionesWeb.webp "Secciones Web")
+
+![Anatomia Web](img/anatomiaPagina.webp "Anatomia Web")
+
+![anatomiaPagina2](img/anatomiaPagina2.webp "anatomiaPagina2")
+
+## Clase6 - Index y su estructura basica:head
+
+[CheatSheet HTML5](file/html5-cheatsheet-2019.pdf)
+
+
+
 

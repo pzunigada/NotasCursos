@@ -2,6 +2,8 @@
 
 [Docker-Informacion](https://www.computerweekly.com/es/definicion/Docker)
 
+[Repositorio-imagenes](https://hub.docker.com/)
+
 # Fundamentos de Docker
 
 ## Informacion Rapida de Docker
@@ -166,3 +168,59 @@ docker tag docker101tutorial pzunigada/docker101tutorial
 
 docker push pzunigada/docker101tutorial
 ```
+
+## Informacion del curso
+
+### ***Profundizando en el concepto de imágen***
+***¿Qué son las imágenes?***   
+Son moldes o plantillas que tienen empaquetado todo lo necesario para funcionar. Docker usa estás misma para construir contenedores.  
+
+***¿Para qué sirven las imágenes en la construcción de software?***   
+Las imágenes sirven para crear contenedores y también es como docker intenta solucionar el problema de construcción de y distribución de software.
+
+Es bueno profundizar un poco más en el concepto de una imágen en Docker para entender su función, para posteriormente poder realizar una por nuestra cuenta desde 0, cuando no haya una imágenque cumpla con nuestras necesidades.
+
+***Imágen***   
+* Una imágen contiene distintas capas de datos (distribución, diferente software, librerías y personalización).
+* Podemos llegar a la conclusión, que una imágen se conforma de distintas capas de personalización, en base a una capa inicial (base image), la dicha capa, es el más puro estado del SO.
+* La siguiente ilustración nos mostraría la representación gráfica, del concepto de una imágen en Docker.
+
+![Docker-Imagen](img/Docker-Imagen.webp)
+
+Si observamos, partimos desde la base del SO, y vamos agregando capas de personalización hasta obtener la imágen que necesitamos:
+
+* distribución debian
+* se agrega el editor emacs
+* se agrega el servidor Apache
+* se agregan los permisos de escritura para la carpeta /var/www de Apache
+
+* Hay que tener en cuenta, que todo parte del Kernel de Linux, en caso de utilizar alguna distrubución de Linux
+
+***Historico de una imágen*** 
+
+Observar la lista de imagenes existentes
+```shell
+docker image ls
+```
+**TAG:** Es la version de la imagen, cuando no especificamos que versión de descargar docker asume que es la última
+**CREATE AT:** Tiempo de creación
+**SIZE:** Tamaño de la imagen
+**IMAGE ID:** Este es el identificador de la imagen. Si descargamos dos imágenes que son iguales al realizar un pull, docker lo que hará es tener un puntero lógico a la misma imagen ya descargada y no descargará la otra imagen. Existe la posibilidad que tenga TAG diferentes, pero serán la misma imagen. Esto último se puede comprobar viendo el IMAGE ID, debería ser los mismos.
+
+descargar imagen de la ultima version desde dockerhub
+```shell
+docker pull <image_name>
+```
+descargar imagen con una version especifica desde dockerhub
+```shell
+docker pull <image_name>:<tag_name>
+```
+Podemos observar la historia de nuestra imágen, con el siguiente comando
+```shell
+docker history [imagen]
+```
+Eliminar imagenes
+```shell
+docker image prune -a
+```
+De esta manera podemos ver las capas de personalización que fuerón agregadas, para la construcción de la imágen que conocemos.
